@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Chris on 7/31/2017.
  */
-public class testPlayer {
+public class testComputerPlayer {
     @Before
     public void setUp() throws Exception {
 

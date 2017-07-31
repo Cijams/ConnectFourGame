@@ -1,8 +1,5 @@
 package connect.four.test;
 
-import connect.four.test.testBoard;
-import connect.four.test.testGame;
-import connect.four.test.testPlayer;
 import org.junit.runners.Suite.SuiteClasses;
 import org.junit.runners.Suite;
 import org.junit.runner.RunWith;
@@ -15,7 +12,7 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(Suite.class)
-@SuiteClasses({ testBoard.class, testGame.class, testPlayer.class })
+@SuiteClasses({ testBoard.class, testGame.class, testComputerPlayer.class })
 
 public class testSuite {
 }
