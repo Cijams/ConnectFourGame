@@ -10,15 +10,24 @@ import static org.junit.Assert.*;
 /**
  * Created by Chris on 7/31/2017.
  */
-public class testRandomPlayer {
+public class TestRandomPlayer {
     RandomPlayer tRandomPlayer;
     Board tBoard;
+
+    /**
+     * Instantiate variables and ensure their creation.
+     * @throws Exception
+     */
     @Before
     public void setUp() throws Exception {
         tRandomPlayer = new RandomPlayer();
         tBoard = new Board(7,7);
     }
 
+    /**
+     * Ensure accurate values are being returned from the methods
+     * by comparing them against expected values.
+     */
     @Test
     public void testGame() {
         assertNotNull(tRandomPlayer.getName());
@@ -26,6 +35,10 @@ public class testRandomPlayer {
         assertTrue(tRandomPlayer.getName().equals("Computer"));
     }
 
+    /**
+     * Test to see if a random player can make moves on
+     * a board in several different ways.
+     */
     @Test
     public void testPerformPlay() {
         tRandomPlayer.performPlay(tBoard);
@@ -35,6 +48,10 @@ public class testRandomPlayer {
         tRandomPlayer.performPlay(tBoard);
     }
 
+    /**
+     * dereference variables and call garbage collection
+     * @throws Exception
+     */
     @After
     public void tearDown() throws Exception {
         tRandomPlayer = null;
@@ -42,5 +59,6 @@ public class testRandomPlayer {
 
         assertNull(tRandomPlayer);
         assertNull(tBoard);
+        System.gc();
     }
 }
