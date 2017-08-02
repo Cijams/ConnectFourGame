@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(Suite.class)
-@SuiteClasses({ testBoard.class, testGame.class, testPlayer.class })
+@SuiteClasses({ TestBoard.class, TestComputerPlayer.class, TestConsolePlayer.class,
+                TestGUI.class, TestIntegration.class, TestRandomPlayer.class })
 
-public class testSuite {
+public class TestSuite {
 }
