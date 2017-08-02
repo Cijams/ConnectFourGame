@@ -67,7 +67,7 @@ public class TestIntegration {
 
         tGUI = new GUI();
         tGameOverPanel = new GameOverPanel(tGUI, "Josh");
-        tGamePanel = new GamePanel(tGUI, false);
+        tGamePanel = new GamePanel(tGUI, false, false);
         tGUIPiece = new GUIPiece(1);
 
         tMainMenuPanel = new MainMenuPanel(tGUI);

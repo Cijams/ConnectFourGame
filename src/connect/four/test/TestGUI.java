@@ -29,7 +29,7 @@ public class TestGUI {
         tBoard = new Board(5,5);
         tGUIPiece = new GUIPiece(5);
         tMainMenuPanel = new MainMenuPanel(tGUI);
-        tGamePanel = new GamePanel(tGUI, false);
+        tGamePanel = new GamePanel(tGUI, false, false);
     }
 
     /**
