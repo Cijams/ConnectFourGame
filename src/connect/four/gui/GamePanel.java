@@ -32,18 +32,31 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
     GUIPiece[] pieces;
     Board board;
     boolean isComputerEnabled;
+    boolean isComputerVComputerEnabled;
     boolean justWon;
 
-    public GamePanel(GUI gui, boolean isComputerEnabled) {
+    public GamePanel(GUI gui, boolean isComputerEnabled, boolean isComputerVComputerEnabled) {
         //whoPlayed = 1;
         players = new Player[2];
-        players[0] = new GUIPlayer(gui.getPlayer1Name(), this);
-        this.isComputerEnabled = isComputerEnabled;
-        if (!isComputerEnabled) {
-            players[1] = new GUIPlayer(gui.getPlayer2Name(), this);
+
+        this.isComputerVComputerEnabled = isComputerVComputerEnabled;
+        if (isComputerVComputerEnabled) {
+            this.isComputerEnabled = false;
+
+            players[0] = new GUIWrapperPlayer(new ComputerPlayer(gui.getPlayer1Name()), this);
+            players[1] = new GUIWrapperPlayer(new ComputerPlayer(gui.getPlayer2Name()), this);
         } else {
-            players[1] = new GUIWrapperPlayer(new ComputerPlayer(), this);
+            players[0] = new GUIPlayer(gui.getPlayer1Name(), this);
+
+            this.isComputerEnabled = isComputerEnabled;
+            if (isComputerEnabled) {
+                players[1] = new GUIWrapperPlayer(new ComputerPlayer(gui.getPlayer2Name()), this);
+            } else {
+                players[1] = new GUIPlayer(gui.getPlayer2Name(), this);
+            }
         }
+
+
         setSize(1280, 800);
         initComponents();
         this.gui = gui;
@@ -89,29 +102,30 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         });
         setLayout(null);
 
-        player1NameBox.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        player1NameBox.setForeground(new java.awt.Color(255, 255, 255));
-        player1NameBox.setText("player 1");
-        add(player1NameBox);
-        player1NameBox.setBounds(1070, 40, 210, 40);
 
         currentWins.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         currentWins.setForeground(new java.awt.Color(255, 255, 255));
         currentWins.setText("CURRENT WINS");
         add(currentWins);
-        currentWins.setBounds(1070, 0, 200, 40);
+        currentWins.setBounds(1080, 0, 200, 40);
+
+        player1NameBox.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        player1NameBox.setForeground(new java.awt.Color(255, 255, 255));
+        player1NameBox.setText("player 1");
+        add(player1NameBox);
+        player1NameBox.setBounds(1080, 40, 210, 40);
 
         pNameDisplay.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         pNameDisplay.setForeground(new java.awt.Color(255, 255, 255));
         pNameDisplay.setText("jLabel2");
         add(pNameDisplay);
-        pNameDisplay.setBounds(1070, 210, 200, 40);
+        pNameDisplay.setBounds(1080, 210, 200, 40);
 
         turnDisplay.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         turnDisplay.setForeground(new java.awt.Color(255, 255, 255));
         turnDisplay.setText("jLabel2");
         add(turnDisplay);
-        turnDisplay.setBounds(1070, 150, 200, 40);
+        turnDisplay.setBounds(1080, 150, 200, 40);
 
         col1.setBackground(new java.awt.Color(102, 102, 102));
         col1.setOpaque(false);
@@ -267,7 +281,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         player2NameBox.setForeground(new java.awt.Color(255, 255, 255));
         player2NameBox.setText("player 1");
         topGlass.add(player2NameBox);
-        player2NameBox.setBounds(1070, 90, 210, 40);
+        player2NameBox.setBounds(1080, 90, 210, 40);
 
         add(topGlass);
         topGlass.setBounds(0, 0, 1280, 800);
@@ -347,30 +361,37 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
     }//GEN-LAST:event_formMouseClicked
 
     private void col1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col1MouseClicked
+        if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col1MouseClicked
 
     private void col2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col2MouseClicked
+        if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col2MouseClicked
 
     private void col3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col3MouseClicked
+        if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col3MouseClicked
 
     private void col4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col4MouseClicked
+        if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col4MouseClicked
 
     private void col6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col6MouseClicked
+        if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col6MouseClicked
 
     private void col7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col7MouseClicked
+        if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col7MouseClicked
 
     private void col5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col5MouseClicked
+        if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col5MouseClicked
 
@@ -392,6 +413,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         final int destination = getTargetY();
         final long startTime = System.currentTimeMillis();
         pieces[turnNum].setVisible(true);
+
         Timer timer = new Timer((8000 / (destination)), new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int x = pieces[turnNum].getX();
@@ -405,8 +427,11 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
                     ((Timer) (e.getSource())).stop();
                     falling = false;
                     System.out.println("Piece fell.");
-                    if (!isComputerEnabled) {
+                    if (!isComputerEnabled && !isComputerVComputerEnabled) {
                         GUIPlayer player = (GUIPlayer) game.getCurrentPlayer();
+                        player.getBoard().play(getColumnNum(), player);
+                    } else if (isComputerVComputerEnabled) {
+                        GUIWrapperPlayer player = (GUIWrapperPlayer) game.getCurrentPlayer();
                         player.getBoard().play(getColumnNum(), player);
                     } else {
                         if (game.getCurrentPlayer() == players[0]) {
@@ -426,8 +451,11 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
                     ((Timer) (e.getSource())).stop();
                     falling = false;
                     System.out.println("Piece fell.");
-                    if (!isComputerEnabled) {
+                    if (!isComputerEnabled && !isComputerVComputerEnabled) {
                         GUIPlayer player = (GUIPlayer) game.getCurrentPlayer();
+                        player.getBoard().play(getColumnNum(), player);
+                    } else if (isComputerVComputerEnabled) {
+                        GUIWrapperPlayer player = (GUIWrapperPlayer) game.getCurrentPlayer();
                         player.getBoard().play(getColumnNum(), player);
                     } else {
                         if (game.getCurrentPlayer() == players[0]) {
@@ -565,8 +593,10 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
                 //Turn goes up, unless there is a tie
                 if (turnNum == 42) {
                     for (GUIPiece piece : pieces) {
-                        piece.setIcon((Icon) null);
-                        topGlass.remove(piece);
+                        if (piece != null) {
+                            piece.setIcon(null);
+                            topGlass.remove(piece);
+                        }
                     }
                     gui.setWinner("It's a tie!");
                     board.clear();
@@ -577,6 +607,9 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
                     pieces[turnNum].setLocation(newDrawPos, 0);
                     if (game.getCurrentPlayer() == players[1]
                             && isComputerEnabled) {
+                        pieces[turnNum].setVisible(false);
+                    }
+                    if (isComputerVComputerEnabled) {
                         pieces[turnNum].setVisible(false);
                     }
                     columnNum = newColumnNum;
@@ -619,6 +652,9 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         pieces[turnNum] = new GUIPiece(turnNum);
         pieces[turnNum].setLocation(newDrawPos, 0);
         if (game.getCurrentPlayer() == players[1] && isComputerEnabled) {
+            pieces[turnNum].setVisible(false);
+        }
+        if (isComputerVComputerEnabled) {
             pieces[turnNum].setVisible(false);
         }
         add(pieces[turnNum]);
@@ -671,8 +707,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
                 topGlass.revalidate();
                 topGlass.repaint();
             }
-
-
         });
         timer.setRepeats(true);
         timer.setCoalesce(true);
@@ -695,6 +729,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
     private javax.swing.JLabel player2NameBox;
     private javax.swing.JPanel topGlass;
     private javax.swing.JLabel turnDisplay;
+
     // End of variables declaration//GEN-END:variables
 
 

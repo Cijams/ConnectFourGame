@@ -2,15 +2,18 @@
 package connect.four.board;
 
 import connect.four.player.Player;
+
 import java.util.Arrays;
 
 public class Board implements ReadWritableBoard {
     Player[][] m_contents;
     int m_moveCount;
+
     public Board(int width, int height) {
         m_contents = new Player[width][height];
         m_moveCount = 0;
     }
+
     public Board(ReadableBoard copy) {
         if (copy instanceof Board) {
             Board copyB = (Board) copy;
@@ -33,15 +36,19 @@ public class Board implements ReadWritableBoard {
             }
         }
     }
+
     public Player whoPlayed(int x, int y) {
         return m_contents[x][y];
     }
+
     public int getWidth() {
         return m_contents.length;
     }
+
     public int getHeight() {
         return m_contents[0].length;
     }
+
     public void play(int x, Player p) {
         int y = getColumnHeight(x);
         if (y == m_contents[x].length) {
@@ -50,23 +57,25 @@ public class Board implements ReadWritableBoard {
         m_contents[x][y] = p;
         m_moveCount += 1;
     }
-    
-    public int getColumnHeight(int x){
+
+    public int getColumnHeight(int x) {
         int y = 0;
-	int l = m_contents[0].length;
+        int l = m_contents[0].length;
         while (y != l && m_contents[x][y] != null) {
             y += 1;
         }
         return y;
     }
+
     public void clear() {
         int l = m_contents.length;
         int m = m_contents[0].length;
         for (int i = 0; i != l; ++i) {
             m_contents[i] = new Player[m];
         }
-	m_moveCount = 0;
+        m_moveCount = 0;
     }
+
     public int getMoveCount() {
         return m_moveCount;
     }

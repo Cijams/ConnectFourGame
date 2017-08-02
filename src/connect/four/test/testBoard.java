@@ -1,6 +1,4 @@
-package connect.four.test;
-
-/**
+package connect.four.test; /**
  * Created by Chris on 7/31/2017.
  */
 

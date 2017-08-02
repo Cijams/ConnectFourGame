@@ -12,26 +12,26 @@ import connect.four.player.Player;
 
 
 public class GUIPlayer implements Player {
-	private String m_name;
-	GamePanel gpGUI;
-	ReadWritableBoard board;
-	
-	public GUIPlayer(String name, GamePanel gp){
-		m_name = name;
-		gpGUI = gp;
-	}
-	
-	public String getName(){
-		return m_name;
-	}
-	
-	public void performPlay(ReadWritableBoard board) {
-		this.board = board;
-		
-		
-	}
-	
-	public ReadWritableBoard getBoard(){
-		return board;
-	}
+    private String m_name;
+    GamePanel gpGUI;
+    ReadWritableBoard board;
+
+    public GUIPlayer(String name, GamePanel gp) {
+        m_name = name;
+        gpGUI = gp;
+    }
+
+    public String getName() {
+        return m_name;
+    }
+
+    public void performPlay(ReadWritableBoard board) {
+        this.board = board;
+
+
+    }
+
+    public ReadWritableBoard getBoard() {
+        return board;
+    }
 }
