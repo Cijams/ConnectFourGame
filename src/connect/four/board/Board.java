@@ -1,4 +1,3 @@
-
 package connect.four.board;
 
 import connect.four.player.Player;
@@ -6,8 +5,8 @@ import connect.four.player.Player;
 import java.util.Arrays;
 
 public class Board implements ReadWritableBoard {
-    Player[][] m_contents;
-    int m_moveCount;
+    private final Player[][] m_contents;
+    private int m_moveCount;
 
     public Board(int width, int height) {
         m_contents = new Player[width][height];

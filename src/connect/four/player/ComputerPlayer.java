@@ -1,21 +1,20 @@
-
 package connect.four.player;
 
-import connect.four.board.Board;
-import connect.four.board.ReadableBoard;
-import connect.four.board.ReadWritableBoard;
 import connect.four.Game;
+import connect.four.board.Board;
+import connect.four.board.ReadWritableBoard;
+import connect.four.board.ReadableBoard;
 
 import java.util.Arrays;
 import java.util.Random;
 
 
 public class ComputerPlayer implements Player {
-    int m_depth;
-    String name = "Computer";
+    private final int m_depth;
+    private String name = "Computer";
 
 
-    public ComputerPlayer(int depth, String playerName) {
+    private ComputerPlayer(int depth, String playerName) {
         m_depth = depth;
         this.name = playerName;
     }

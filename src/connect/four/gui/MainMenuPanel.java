@@ -6,15 +6,14 @@
 
 package connect.four.gui;
 
-import connect.four.Game;
-
-
 public class MainMenuPanel extends javax.swing.JPanel {
 
+    private final GUI gui;
     private String name1, name2;
-    GUI gui;
     private boolean isEnabled;
     private boolean isComputerVComputerEnabled;
+    private javax.swing.JTextField tfplayer1;
+    private javax.swing.JTextField tfplayer2;
 
     public MainMenuPanel(GUI gui) {
         initComponents();
@@ -35,14 +34,14 @@ public class MainMenuPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        title = new javax.swing.JLabel();
+        javax.swing.JLabel title = new javax.swing.JLabel();
         tfplayer1 = new javax.swing.JTextField();
         tfplayer2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        butPlay = new javax.swing.JButton();
-        jtCvsCToggle = new javax.swing.JToggleButton();
-        jtComputerToggle1 = new javax.swing.JToggleButton();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+        javax.swing.JButton butPlay = new javax.swing.JButton();
+        javax.swing.JToggleButton jtCvsCToggle = new javax.swing.JToggleButton();
+        javax.swing.JToggleButton jtComputerToggle1 = new javax.swing.JToggleButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -51,19 +50,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         title.setText("Connect Four");
 
         tfplayer1.setText("Player 1");
-        tfplayer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfplayer1ActionPerformed(evt);
-            }
-        });
-
         tfplayer2.setText("Player 2");
-        tfplayer2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfplayer2ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Player 1:");
@@ -155,14 +142,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfplayer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfplayer2ActionPerformed
-
-    }//GEN-LAST:event_tfplayer2ActionPerformed
-
-    private void tfplayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfplayer1ActionPerformed
-
-    }//GEN-LAST:event_tfplayer1ActionPerformed
-
     private void butPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butPlayActionPerformed
         gui.setPlayer1Name(tfplayer1.getText());
         gui.setPlayer2Name(tfplayer2.getText());
@@ -215,16 +194,5 @@ public class MainMenuPanel extends javax.swing.JPanel {
     public boolean getIsCvCEnabled() {
         return isComputerVComputerEnabled;
     }
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton butPlay;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JToggleButton jtComputerToggle1;
-    private javax.swing.JToggleButton jtCvsCToggle;
-    private javax.swing.JTextField tfplayer1;
-    private javax.swing.JTextField tfplayer2;
-    private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

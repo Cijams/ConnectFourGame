@@ -9,6 +9,7 @@ import connect.four.player.ConsolePlayer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -16,19 +17,20 @@ import static org.junit.Assert.*;
  * as they require input for STDIN.
  */
 public class TestConsolePlayer {
-    ConsolePlayer tConsolePlayerOne;
-    ConsolePlayer tConsolePlayerTwo;
-    Board tBoard;
+    private ConsolePlayer tConsolePlayerOne;
+    private ConsolePlayer tConsolePlayerTwo;
+    private Board tBoard;
 
     /**
      * Instantiate variables and ensure their creation.
+     *
      * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
         tConsolePlayerOne = new ConsolePlayer("Charlie");
         tConsolePlayerTwo = new ConsolePlayer("Dennis");
-        tBoard = new Board(5,5);
+        tBoard = new Board(5, 5);
     }
 
     /**
@@ -50,7 +52,8 @@ public class TestConsolePlayer {
      * Testing values again after setters have been used
      * to alter the values in each console player class.
      */
-    @Test public void testSetName() {
+    @Test
+    public void testSetName() {
         tConsolePlayerOne.setName("Mac");
         tConsolePlayerTwo.setName("Frank");
 
@@ -63,6 +66,7 @@ public class TestConsolePlayer {
 
     /**
      * dereference variables and call garbage collection
+     *
      * @throws Exception
      */
     @After

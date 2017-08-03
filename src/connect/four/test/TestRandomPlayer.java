@@ -5,23 +5,25 @@ import connect.four.player.RandomPlayer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  * Created by Chris on 7/31/2017.
  */
 public class TestRandomPlayer {
-    RandomPlayer tRandomPlayer;
-    Board tBoard;
+    private RandomPlayer tRandomPlayer;
+    private Board tBoard;
 
     /**
      * Instantiate variables and ensure their creation.
+     *
      * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
         tRandomPlayer = new RandomPlayer();
-        tBoard = new Board(7,7);
+        tBoard = new Board(7, 7);
     }
 
     /**
@@ -42,14 +44,15 @@ public class TestRandomPlayer {
     @Test
     public void testPerformPlay() {
         tRandomPlayer.performPlay(tBoard);
-        tBoard.whoPlayed(2,4);
+        tBoard.whoPlayed(2, 4);
         tRandomPlayer.performPlay(tBoard);
-        tBoard.whoPlayed(1,2);
+        tBoard.whoPlayed(1, 2);
         tRandomPlayer.performPlay(tBoard);
     }
 
     /**
      * dereference variables and call garbage collection
+     *
      * @throws Exception
      */
     @After

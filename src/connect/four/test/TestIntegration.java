@@ -14,7 +14,8 @@ import connect.four.player.RandomPlayer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Test to make sure that a large portion of the
@@ -24,30 +25,31 @@ import static org.junit.Assert.*;
  * unit tested in the other test classes.
  */
 public class TestIntegration {
-    RandomPlayer tRandomPlayer;
-    ConsolePlayer tConsolePlayerOne;
-    ConsolePlayer tConsolePlayerTwo;
-    ComputerPlayer tComputerPlayerOne;
-    ComputerPlayer tComputerPlayerTwo;
-    ComputerPlayer tComputerPlayerArray[];
+    private RandomPlayer tRandomPlayer;
+    private ConsolePlayer tConsolePlayerOne;
+    private ConsolePlayer tConsolePlayerTwo;
+    private ComputerPlayer tComputerPlayerOne;
+    private ComputerPlayer tComputerPlayerTwo;
+    private ComputerPlayer[] tComputerPlayerArray;
 
-    Board tBoard;
-    Board tBoard1;
-    Board tBoard2;
-    Board tBoard3;
+    private Board tBoard;
+    private Board tBoard1;
+    private Board tBoard2;
+    private Board tBoard3;
 
-    GameOverPanel tGameOverPanel;
-    GamePanel tGamePanel;
-    GUI tGUI;
-    GUIPiece tGUIPiece;
+    private GameOverPanel tGameOverPanel;
+    private GamePanel tGamePanel;
+    private GUI tGUI;
+    private GUIPiece tGUIPiece;
 
-    MainMenuPanel tMainMenuPanel;
+    private MainMenuPanel tMainMenuPanel;
 
-    ConnectFour tFour;
-    Game tGame;
+    private ConnectFour tFour;
+    private Game tGame;
 
     /**
      * Instantiate variables and ensure their creation.
+     *
      * @throws Exception
      */
     @Before
@@ -60,10 +62,10 @@ public class TestIntegration {
         tComputerPlayerArray = new ComputerPlayer[1];
         tComputerPlayerArray[0] = new ComputerPlayer();
 
-        tBoard = new Board(10,23);
+        tBoard = new Board(10, 23);
         tBoard1 = new Board(100, 100);
-        tBoard2 = new Board(1,1);
-        tBoard3 = new Board(0,0);
+        tBoard2 = new Board(1, 1);
+        tBoard3 = new Board(0, 0);
 
         tGUI = new GUI();
         tGameOverPanel = new GameOverPanel(tGUI, "Josh");
@@ -87,10 +89,10 @@ public class TestIntegration {
         tGame.getInRow();
         tGame.getPlayers();
 
-        tBoard.play(1,tComputerPlayerOne);
-        tBoard.whoPlayed(1,2);
+        tBoard.play(1, tComputerPlayerOne);
+        tBoard.whoPlayed(1, 2);
         tBoard.getColumnHeight(1);
-        tBoard.play(2,tComputerPlayerTwo);
+        tBoard.play(2, tComputerPlayerTwo);
         tBoard.getHeight();
         tBoard.clear();
         tBoard.getMoveCount();
@@ -119,6 +121,7 @@ public class TestIntegration {
 
     /**
      * dereference variables and call garbage collection
+     *
      * @throws Exception
      */
     @After

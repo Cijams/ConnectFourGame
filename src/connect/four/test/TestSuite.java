@@ -1,8 +1,8 @@
 package connect.four.test;
 
-import org.junit.runners.Suite.SuiteClasses;
-import org.junit.runners.Suite;
 import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
 /**
  * This class is the test suite that will run all other tests
@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
  */
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestBoard.class, TestComputerPlayer.class, TestConsolePlayer.class,
-                TestGUI.class, TestIntegration.class, TestRandomPlayer.class })
+@SuiteClasses({TestBoard.class, TestComputerPlayer.class, TestConsolePlayer.class,
+        TestGUI.class, TestIntegration.class, TestRandomPlayer.class})
 
 public class TestSuite {
 }

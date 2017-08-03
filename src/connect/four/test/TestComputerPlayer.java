@@ -2,11 +2,13 @@ package connect.four.test;
 /**
  * Created by Chris on 7/31/2017.
  */
+
 import connect.four.board.Board;
 import connect.four.player.ComputerPlayer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -14,21 +16,22 @@ import static org.junit.Assert.*;
  * the CPU player is properly responding to given values.
  */
 public class TestComputerPlayer {
-    ComputerPlayer tComputerPlayerOne;
-    ComputerPlayer tComputerPlayerTwo;
-    Board tBoard;
-    Board tBoard2;
+    private ComputerPlayer tComputerPlayerOne;
+    private ComputerPlayer tComputerPlayerTwo;
+    private Board tBoard;
+    private Board tBoard2;
 
     /**
      * Instantiate variables and ensure their creation.
+     *
      * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
         tComputerPlayerOne = new ComputerPlayer();
         tComputerPlayerTwo = new ComputerPlayer(0);
-        tBoard = new Board(5,5);
-        tBoard2 = new Board(2,4);
+        tBoard = new Board(5, 5);
+        tBoard2 = new Board(2, 4);
     }
 
     /**
@@ -61,6 +64,7 @@ public class TestComputerPlayer {
 
     /**
      * dereference variables and call garbage collection
+     *
      * @throws Exception
      */
     @After

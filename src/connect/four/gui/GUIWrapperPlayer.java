@@ -6,16 +6,15 @@
 
 package connect.four.gui;
 
-import connect.four.board.Board;
 import connect.four.board.ReadWritableBoard;
 import connect.four.player.Player;
 
 
 public class GUIWrapperPlayer implements Player {
 
-    Player player;
-    GamePanel gpGUI;
-    ReadWritableBoard board;
+    private final Player player;
+    private final GamePanel gpGUI;
+    private ReadWritableBoard board;
 
 
     GUIWrapperPlayer(Player player, GamePanel gpGUI) {

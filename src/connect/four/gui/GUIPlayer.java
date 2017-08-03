@@ -7,14 +7,13 @@
 package connect.four.gui;
 
 import connect.four.board.ReadWritableBoard;
-import connect.four.gui.*;
 import connect.four.player.Player;
 
 
 public class GUIPlayer implements Player {
-    private String m_name;
-    GamePanel gpGUI;
-    ReadWritableBoard board;
+    private final GamePanel gpGUI;
+    private final String m_name;
+    private ReadWritableBoard board;
 
     public GUIPlayer(String name, GamePanel gp) {
         m_name = name;

@@ -6,34 +6,42 @@
 
 package connect.four.gui;
 
-import connect.four.*;
-import connect.four.board.*;
-import connect.four.player.*;
+import connect.four.Game;
+import connect.four.ScoreChart;
+import connect.four.board.Board;
+import connect.four.board.ReadableBoard;
+import connect.four.player.ComputerPlayer;
+import connect.four.player.Player;
 
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
 
 
 public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener {
 
-    GUI gui;
-    static final long GLOW_START_TIME = (int) System.currentTimeMillis();
-    static final int PLAY_TIME = 1500;
-    boolean falling;
-    int columnNum;
-    int turnNum;
-    int whoPlayed;
-    int newDrawPos;
-    int newColumnNum;
-    Player[] players;
-    Game game;
-    GUIPiece[] pieces;
-    Board board;
-    boolean isComputerEnabled;
-    boolean isComputerVComputerEnabled;
-    boolean justWon;
+    private static final long GLOW_START_TIME = (int) System.currentTimeMillis();
+    private static final int PLAY_TIME = 1500;
+    private final GUI gui;
+    private final Player[] players;
+    private final Game game;
+    private final Board board;
+    private final boolean isComputerEnabled;
+    private final boolean isComputerVComputerEnabled;
+    private boolean falling;
+    private int columnNum;
+    private int turnNum;
+    private int whoPlayed;
+    private int newDrawPos;
+    private int newColumnNum;
+    private GUIPiece[] pieces;
+    private boolean justWon;
+    private javax.swing.JLabel pNameDisplay;
+    private javax.swing.JLabel player1NameBox;
+    private javax.swing.JLabel player2NameBox;
+    private javax.swing.JPanel topGlass;
+    private javax.swing.JLabel turnDisplay;
 
     public GamePanel(GUI gui, boolean isComputerEnabled, boolean isComputerVComputerEnabled) {
         //whoPlayed = 1;
@@ -79,27 +87,22 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
     private void initComponents() {
 
         player1NameBox = new javax.swing.JLabel();
-        currentWins = new javax.swing.JLabel();
+        JLabel currentWins = new JLabel();
         pNameDisplay = new javax.swing.JLabel();
         turnDisplay = new javax.swing.JLabel();
-        col1 = new javax.swing.JPanel();
-        col2 = new javax.swing.JPanel();
-        col3 = new javax.swing.JPanel();
-        col4 = new javax.swing.JPanel();
-        col5 = new javax.swing.JPanel();
-        col6 = new javax.swing.JPanel();
+        JPanel col1 = new JPanel();
+        JPanel col2 = new JPanel();
+        JPanel col3 = new JPanel();
+        JPanel col4 = new JPanel();
+        JPanel col5 = new JPanel();
+        JPanel col6 = new JPanel();
         topGlass = new javax.swing.JPanel();
-        col7 = new javax.swing.JPanel();
+        JPanel col7 = new JPanel();
         player2NameBox = new javax.swing.JLabel();
-        bgImage = new javax.swing.JLabel();
+        JLabel bgImage = new JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(1280, 800));
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-        });
         setLayout(null);
 
 
@@ -134,10 +137,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
                 col1MouseClicked(evt);
             }
 
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                col1MouseExited(evt);
-            }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 col1MouseEntered(evt);
             }
@@ -152,11 +151,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 col2MouseClicked(evt);
             }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                col2MouseExited(evt);
-            }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 col2MouseEntered(evt);
             }
@@ -175,10 +169,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 col3MouseExited(evt);
             }
-
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                col3MouseEntered(evt);
-            }
         });
         col3.setLayout(null);
         add(col3);
@@ -190,11 +180,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 col4MouseClicked(evt);
             }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                col4MouseExited(evt);
-            }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 col4MouseEntered(evt);
             }
@@ -208,10 +193,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         col5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 col5MouseClicked(evt);
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                col5MouseExited(evt);
             }
 
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -264,11 +245,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 col7MouseClicked(evt);
             }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                col7MouseExited(evt);
-            }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 col7MouseEntered(evt);
             }
@@ -298,31 +274,15 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         calcWidth(0);
     }//GEN-LAST:event_col1MouseEntered
 
-    private void col1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col1MouseExited
-
-    }//GEN-LAST:event_col1MouseExited
-
-    private void col2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col2MouseExited
-
-    }//GEN-LAST:event_col2MouseExited
-
     private void col2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col2MouseEntered
         calcNewPos(1);
         calcWidth(1);
     }//GEN-LAST:event_col2MouseEntered
 
-    private void col4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col4MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col4MouseExited
-
     private void col4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col4MouseEntered
         calcNewPos(3);
         calcWidth(3);
     }//GEN-LAST:event_col4MouseEntered
-
-    private void col5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col5MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col5MouseExited
 
     private void col5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col5MouseEntered
         calcNewPos(4);
@@ -338,10 +298,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         calcWidth(5);
     }//GEN-LAST:event_col6MouseEntered
 
-    private void col7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col7MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col7MouseExited
-
     private void col7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col7MouseEntered
         calcNewPos(6);
         calcWidth(6);
@@ -351,14 +307,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         // TODO add your handling code here:
     }//GEN-LAST:event_col3MouseExited
 
-    private void col3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col3MouseEntered
-        calcNewPos(2);
-        calcWidth(2);
-    }//GEN-LAST:event_col3MouseEntered
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-
-    }//GEN-LAST:event_formMouseClicked
 
     private void col1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col1MouseClicked
         if (isComputerVComputerEnabled) return;
@@ -407,8 +355,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         // TODO add your handling code here:
     }//GEN-LAST:event_topGlassMouseEntered
 
-
-    void dropPiece() {
+    private void dropPiece() {
         falling = true;
         final int destination = getTargetY();
         final long startTime = System.currentTimeMillis();
@@ -445,7 +392,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
                     }
                     turnUp();
                 }
-                y = y + (int) Math.round((destination - startY) * progress);
+                y = y + Math.round((destination - startY) * progress);
                 pieces[turnNum].setLocation(x, y);
                 if (y == getTargetY()) {
                     ((Timer) (e.getSource())).stop();
@@ -474,8 +421,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         timer.start();
     }
 
-
-    public int getTargetY() {
+    private int getTargetY() {
         int height = board.getColumnHeight(getColumnNum());
         switch (height) {
             case 0:
@@ -495,7 +441,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         }
     }
 
-    public boolean isValidMove() {
+    private boolean isValidMove() {
         boolean valid = true;
         if (board.getColumnHeight(getColumnNum()) > 5) {
             valid = false;
@@ -503,7 +449,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         return valid;
     }
 
-    public int getColumnNum() {
+    private int getColumnNum() {
         return columnNum;
     }
 
@@ -535,7 +481,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         }
 
 
-        if (falling == false) {
+        if (!falling) {
             columnNum = columnEntered;
             pieces[turnNum].setLocation(xPos, 0);
             revalidate();
@@ -543,7 +489,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         }
     }
 
-    void calcNewPos(int columnEntered) {
+    private void calcNewPos(int columnEntered) {
         int xPos = 0;
 
         switch (columnEntered) {
@@ -575,9 +521,9 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
 
     }
 
-    void turnUp() {
+    private void turnUp() {
         if (!justWon) {
-            if (falling == false) {
+            if (!falling) {
                 //move piece to top glass, for glow.
                 glow(pieces[turnNum]);
 
@@ -636,14 +582,14 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
     }
 
     public void turn() {
-        if (falling == false && isValidMove()) {
+        if (!falling && isValidMove()) {
             System.out.println(getColumnNum());
             System.out.println(board.getColumnHeight(getColumnNum()));
             dropPiece();
         }
     }
 
-    void initNewGame() {
+    private void initNewGame() {
         turnNum = 0;
         columnNum = 0;
         whoPlayed = 1;
@@ -694,8 +640,7 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         }
     }
 
-
-    void glow(GUIPiece currentPiece) {
+    private void glow(GUIPiece currentPiece) {
         final GUIPiece cP = currentPiece;
         topGlass.add(cP);
         Timer timer = new Timer(100, new ActionListener() {
@@ -712,23 +657,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         timer.setCoalesce(true);
         timer.start();
     }
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel bgImage;
-    private javax.swing.JPanel col1;
-    private javax.swing.JPanel col2;
-    private javax.swing.JPanel col3;
-    private javax.swing.JPanel col4;
-    private javax.swing.JPanel col5;
-    private javax.swing.JPanel col6;
-    private javax.swing.JPanel col7;
-    private javax.swing.JLabel currentWins;
-    private javax.swing.JLabel pNameDisplay;
-    private javax.swing.JLabel player1NameBox;
-    private javax.swing.JLabel player2NameBox;
-    private javax.swing.JPanel topGlass;
-    private javax.swing.JLabel turnDisplay;
 
     // End of variables declaration//GEN-END:variables
 

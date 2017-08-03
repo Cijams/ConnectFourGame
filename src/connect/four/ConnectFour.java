@@ -1,10 +1,13 @@
-
 package connect.four;
 
-import java.io.*;
+import connect.four.board.Board;
+import connect.four.player.ComputerPlayer;
+import connect.four.player.ConsolePlayer;
+import connect.four.player.Player;
 
-import connect.four.player.*;
-import connect.four.board.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 public class ConnectFour {

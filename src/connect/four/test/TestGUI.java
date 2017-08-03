@@ -5,28 +5,30 @@ import connect.four.gui.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
  * Created by Chris on 7/31/2017.
  */
 public class TestGUI {
-    GUI tGUI;
-    GameOverPanel tGameOverPanel;
-    GamePanel tGamePanel;
-    Board tBoard;
-    GUIPiece tGUIPiece;
-    MainMenuPanel tMainMenuPanel;
+    private GUI tGUI;
+    private GameOverPanel tGameOverPanel;
+    private GamePanel tGamePanel;
+    private Board tBoard;
+    private GUIPiece tGUIPiece;
+    private MainMenuPanel tMainMenuPanel;
 
     /**
      * Instantiate variables and ensure their creation.
+     *
      * @throws Exception
      */
     @Before
     public void setUp() throws Exception {
         tGUI = new GUI();
         tGameOverPanel = new GameOverPanel(tGUI, "Chris");
-        tBoard = new Board(5,5);
+        tBoard = new Board(5, 5);
         tGUIPiece = new GUIPiece(5);
         tMainMenuPanel = new MainMenuPanel(tGUI);
         tGamePanel = new GamePanel(tGUI, false, false);
@@ -48,6 +50,7 @@ public class TestGUI {
 
     /**
      * dereference variables and call garbage collection
+     *
      * @throws Exception
      */
     @After
