@@ -83,47 +83,47 @@ public class GUI extends javax.swing.JFrame {
 
     //Methods
 
-    void updateDisplay() {
+    public void updateDisplay() {
 
         revalidate();
         repaint();
     }
 
-    String getPlayer1Name() {
+    public String getPlayer1Name() {
         return p1Name;
     }
 
-    void setPlayer1Name(String name) {
+    public void setPlayer1Name(String name) {
         p1Name = name;
         System.out.println("Player 1's name set to " + name);
     }
 
-    String getPlayer2Name() {
+    public String getPlayer2Name() {
         return p2Name;
     }
 
-    void setPlayer2Name(String name) {
+    public void setPlayer2Name(String name) {
         p2Name = name;
         System.out.println("Player 2's name set to " + name);
     }
 
-    void addGamePanel() {
+    public void addGamePanel() {
         gamePanel = new GamePanel(this, mainMenu.getIsEnabled(), mainMenu.getIsCvCEnabled());
         add(gamePanel);
     }
 
-    void removeGamePanel() {
+    public void removeGamePanel() {
         remove(gamePanel);
     }
 
-    void addMainMenu() {
+    public void addMainMenu() {
         score1 = 0;
         score2 = 0;
         mainMenu = new MainMenuPanel(this);
         add(mainMenu);
     }
 
-    void addGameOver() {
+    public void addGameOver() {
         remove(gamePanel);
         System.out.println("New Game Over Panel added");
         gameOverPanel = new GameOverPanel(this, winner);
@@ -131,23 +131,23 @@ public class GUI extends javax.swing.JFrame {
         updateDisplay();
     }
 
-    void setWinner(String winner) {
+    public void setWinner(String winner) {
         this.winner = winner;
     }
 
-    int getScore1() {
+    public int getScore1() {
         return score1;
     }
 
-    void setScore1(int newScore) {
+    public void setScore1(int newScore) {
         score1 = newScore;
     }
 
-    int getScore2() {
+    public int getScore2() {
         return score2;
     }
 
-    void setScore2(int newScore) {
+    public void setScore2(int newScore) {
         score2 = newScore;
     }
 

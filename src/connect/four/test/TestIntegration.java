@@ -41,6 +41,7 @@ public class TestIntegration {
     private GamePanel tGamePanel;
     private GUI tGUI;
     private GUIPiece tGUIPiece;
+    private GUIWrapperPlayer tGUIWrapperPlayer;
 
     private MainMenuPanel tMainMenuPanel;
 
@@ -61,6 +62,7 @@ public class TestIntegration {
         tComputerPlayerTwo = new ComputerPlayer();
         tComputerPlayerArray = new ComputerPlayer[1];
         tComputerPlayerArray[0] = new ComputerPlayer();
+        tGUIWrapperPlayer = new GUIWrapperPlayer(tComputerPlayerOne, tGamePanel);
 
         tBoard = new Board(10, 23);
         tBoard1 = new Board(100, 100);
@@ -68,9 +70,26 @@ public class TestIntegration {
         tBoard3 = new Board(0, 0);
 
         tGUI = new GUI();
+        tGUI.updateDisplay();
+        tGUI.getName();
+        tGUI.getPlayer1Name();
+        tGUI.getPlayer2Name();
+        tGUI.setScore1(5);
+        tGUI.setScore2(3);
+        tGUI.setWinner("Todd");
+        tGUI.setPlayer1Name("Todd");
+        tGUI.setPlayer2Name("Mike");
+        tGUI.addMainMenu();
+        tGUI.addGamePanel();
+        tGUI.removeGamePanel();
+
         tGameOverPanel = new GameOverPanel(tGUI, "Josh");
         tGamePanel = new GamePanel(tGUI, false, false);
         tGUIPiece = new GUIPiece(1);
+
+        tGamePanel.setSize(20, 20);
+        tGUIWrapperPlayer.getName();
+        tGUIWrapperPlayer.getBoard();
 
         tMainMenuPanel = new MainMenuPanel(tGUI);
         tFour = new ConnectFour();
@@ -109,6 +128,15 @@ public class TestIntegration {
         tComputerPlayerOne.performPlay(tBoard);
         tComputerPlayerTwo.performPlay(tBoard1);
         tComputerPlayerArray[0].performPlay(tBoard2);
+
+        tRandomPlayer.getName();
+        tConsolePlayerOne.setName("Mike");
+        tConsolePlayerTwo.setName("Todd");
+        tConsolePlayerTwo.getName();
+        tConsolePlayerOne.getName();
+
+        tGamePanel.turn();
+        tGUIPiece.getText();
 
         tMainMenuPanel.getHeight();
         tMainMenuPanel.getWidth();

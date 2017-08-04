@@ -165,10 +165,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 col3MouseClicked(evt);
             }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                col3MouseExited(evt);
-            }
         });
         col3.setLayout(null);
         add(col3);
@@ -209,11 +205,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 col6MouseClicked(evt);
             }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                col6MouseExited(evt);
-            }
-
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 col6MouseEntered(evt);
             }
@@ -224,19 +215,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
 
         topGlass.setBackground(new java.awt.Color(102, 102, 102));
         topGlass.setOpaque(false);
-        topGlass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                topGlassMouseClicked(evt);
-            }
-
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                topGlassMouseExited(evt);
-            }
-
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                topGlassMouseEntered(evt);
-            }
-        });
         topGlass.setLayout(null);
 
         col7.setBackground(new java.awt.Color(102, 102, 102));
@@ -289,9 +267,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         calcWidth(4);
     }//GEN-LAST:event_col5MouseEntered
 
-    private void col6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col6MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col6MouseExited
 
     private void col6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col6MouseEntered
         calcNewPos(5);
@@ -302,11 +277,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         calcNewPos(6);
         calcWidth(6);
     }//GEN-LAST:event_col7MouseEntered
-
-    private void col3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_col3MouseExited
-
 
     private void col1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col1MouseClicked
         if (isComputerVComputerEnabled) return;
@@ -342,18 +312,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         if (isComputerVComputerEnabled) return;
         if (game.getCurrentPlayer() != players[1] || !isComputerEnabled) turn();
     }//GEN-LAST:event_col5MouseClicked
-
-    private void topGlassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_topGlassMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_topGlassMouseClicked
-
-    private void topGlassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_topGlassMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_topGlassMouseExited
-
-    private void topGlassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_topGlassMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_topGlassMouseEntered
 
     private void dropPiece() {
         falling = true;
@@ -611,10 +569,6 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         player1NameBox.setText(players[0].getName() + ":    " + gui.getScore1());
         player2NameBox.setText(players[1].getName() + ":    " + gui.getScore2());
         setVisible(true);
-    }
-
-    void globalGlow() {
-
     }
 
     //GAME OVER

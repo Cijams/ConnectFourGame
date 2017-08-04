@@ -17,7 +17,7 @@ public class GUIWrapperPlayer implements Player {
     private ReadWritableBoard board;
 
 
-    GUIWrapperPlayer(Player player, GamePanel gpGUI) {
+    public GUIWrapperPlayer(Player player, GamePanel gpGUI) {
         this.player = player;
         this.gpGUI = gpGUI;
 
