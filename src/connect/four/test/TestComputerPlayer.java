@@ -45,6 +45,22 @@ public class TestComputerPlayer {
 
         tComputerPlayerOne.performPlay(tBoard2);
         tComputerPlayerTwo.performPlay(tBoard2);
+
+        tBoard.play(1, tComputerPlayerOne);
+        tBoard.play(2, tComputerPlayerTwo);
+
+        tComputerPlayerOne.performPlay(tBoard);
+        tComputerPlayerTwo.performPlay(tBoard);
+
+        tBoard.play(3, tComputerPlayerOne);
+        tBoard.play(4, tComputerPlayerTwo);
+
+        tComputerPlayerOne.performPlay(tBoard);
+        tComputerPlayerTwo.performPlay(tBoard);
+
+        tComputerPlayerOne.performPlay(tBoard);
+        tComputerPlayerTwo.performPlay(tBoard);
+
     }
 
     /**

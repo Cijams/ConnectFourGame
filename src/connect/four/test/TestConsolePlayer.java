@@ -4,11 +4,15 @@ package connect.four.test;
  * Created by Chris on 7/31/2017.
  */
 
+import connect.four.ScoreChart;
 import connect.four.board.Board;
 import connect.four.player.ConsolePlayer;
+import connect.four.player.Player;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -20,6 +24,7 @@ public class TestConsolePlayer {
     private ConsolePlayer tConsolePlayerOne;
     private ConsolePlayer tConsolePlayerTwo;
     private Board tBoard;
+    private ScoreChart tScoreChart;
 
     /**
      * Instantiate variables and ensure their creation.
@@ -31,6 +36,28 @@ public class TestConsolePlayer {
         tConsolePlayerOne = new ConsolePlayer("Charlie");
         tConsolePlayerTwo = new ConsolePlayer("Dennis");
         tBoard = new Board(5, 5);
+
+        ScoreChart tScoreChart = new ScoreChart() {
+            @Override
+            public List<Player> getPlayers() {
+                return null;
+            }
+
+            @Override
+            public int getScore(Player p) {
+                return 0;
+            }
+
+            @Override
+            public void registerListener(Listener l) {
+
+            }
+
+            @Override
+            public void unregisterListener(Listener l) {
+
+            }
+        };
     }
 
     /**

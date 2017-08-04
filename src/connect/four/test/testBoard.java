@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
  */
 public class TestBoard {
     private Board myTestBoard1;
+    private Board myTestBoard2;
 
     /**
      * Instantiate variables and ensure their creation.
@@ -31,9 +32,11 @@ public class TestBoard {
     public void setUp() throws Exception {
         assertNull(myTestBoard1);
         myTestBoard1 = new Board(5, 5);
+        myTestBoard2 = new Board(2, 2);
         assertNotNull(myTestBoard1);
         Board tBoard = new Board(myTestBoard1);
         assertNotNull(tBoard);
+        myTestBoard1 = new Board(myTestBoard2);
     }
 
     /**
@@ -47,6 +50,7 @@ public class TestBoard {
         myTestBoard1.getColumnHeight(2);
         myTestBoard1.whoPlayed(1, 1);
 
+
         ColumnFullException tException = new ColumnFullException();
         tException.getMessage();
     }
@@ -57,8 +61,8 @@ public class TestBoard {
      */
     @Test
     public void testBoardAccuracy() {
-        assertEquals(myTestBoard1.getWidth(), 5);    // Checking correct width
-        assertEquals(myTestBoard1.getHeight(), 5);  // Checking correct height
+        assertEquals(myTestBoard1.getWidth(), 2);    // Checking correct width
+        assertEquals(myTestBoard1.getHeight(), 2);  // Checking correct height
         assertEquals(myTestBoard1.getColumnHeight(0), 0);
     }
 

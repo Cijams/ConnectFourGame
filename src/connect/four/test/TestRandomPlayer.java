@@ -43,10 +43,16 @@ public class TestRandomPlayer {
      */
     @Test
     public void testPerformPlay() {
+        tBoard.play(4, tRandomPlayer);
         tRandomPlayer.performPlay(tBoard);
+        tBoard.play(2, tRandomPlayer);
         tBoard.whoPlayed(2, 4);
         tRandomPlayer.performPlay(tBoard);
+        tBoard.play(0, tRandomPlayer);
+        tBoard.clear();
+        tBoard.play(2, null);
         tBoard.whoPlayed(1, 2);
+        tBoard.play(2, tRandomPlayer);
         tRandomPlayer.performPlay(tBoard);
     }
 

@@ -60,7 +60,7 @@ public class TestIntegration {
         tConsolePlayerTwo = new ConsolePlayer("Todd");
         tComputerPlayerOne = new ComputerPlayer();
         tComputerPlayerTwo = new ComputerPlayer();
-        tComputerPlayerArray = new ComputerPlayer[1];
+        tComputerPlayerArray = new ComputerPlayer[3];
         tComputerPlayerArray[0] = new ComputerPlayer();
         tGUIWrapperPlayer = new GUIWrapperPlayer(tComputerPlayerOne, tGamePanel);
 
@@ -93,6 +93,8 @@ public class TestIntegration {
 
         tMainMenuPanel = new MainMenuPanel(tGUI);
         tFour = new ConnectFour();
+        tComputerPlayerArray[1] = new ComputerPlayer();
+        tComputerPlayerArray[2] = new ComputerPlayer();
         tGame = new Game(tComputerPlayerArray, tBoard, 2);
     }
 
@@ -145,6 +147,11 @@ public class TestIntegration {
         assertNotNull(tComputerPlayerArray[0]);
         assertNotNull(tFour);
 
+        tRandomPlayer.performPlay(tBoard);
+        tBoard.play(1, tRandomPlayer);
+        tRandomPlayer.performPlay(tBoard);
+
+        tGUI.addGameOver();
     }
 
     /**
