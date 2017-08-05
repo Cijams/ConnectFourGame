@@ -10,7 +10,6 @@ public class GameOverPanel extends javax.swing.JPanel {
         initComponents();
         this.gui = gui;
         setSize(1280, 800);
-        System.out.println("Here!");
         winnerDisplay.setText(winner);
         setVisible(true);
     }

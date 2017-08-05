@@ -123,7 +123,6 @@ public class GUI extends javax.swing.JFrame {
 
     public void addGameOver() {
         remove(gamePanel);
-        System.out.println("New Game Over Panel added");
         gameOverPanel = new GameOverPanel(this, winner);
         add(gameOverPanel);
         updateDisplay();

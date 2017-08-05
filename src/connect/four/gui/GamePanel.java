@@ -106,7 +106,10 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         setLayout(null);
 
         JButton endGame = new JButton("END GAME");
-        endGame.setBackground(Color.DARK_GRAY);
+        Font font = endGame.getFont();
+        Font boldFont = new Font(font.getFontName(), Font.BOLD, 20);
+        endGame.setFont(boldFont);
+        endGame.setBackground(new Color(44, 44, 44));
         add(endGame);
         endGame.setBounds(1075, 250, 200, 40);
         endGame.addActionListener(e -> {
