@@ -175,6 +175,9 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         col3.setBackground(new java.awt.Color(102, 102, 102));
         col3.setOpaque(false);
         col3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                col3MouseEntered(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 col3MouseClicked(evt);
             }
@@ -269,6 +272,11 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         calcNewPos(1);
         calcWidth(1);
     }//GEN-LAST:event_col2MouseEntered
+
+    private void col3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col4MouseEntered
+        calcNewPos(2);
+        calcWidth(2);
+    }//GEN-LAST:event_col4MouseEntered
 
     private void col4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_col4MouseEntered
         calcNewPos(3);
