@@ -105,6 +105,16 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         setPreferredSize(new java.awt.Dimension(1280, 800));
         setLayout(null);
 
+        JButton endGame = new JButton("END GAME");
+        endGame.setBackground(Color.DARK_GRAY);
+        add(endGame);
+        endGame.setBounds(1075, 250, 200, 40);
+        endGame.addActionListener(e -> {
+            gui.setWinner("It's a tie!");
+            initNewGame();
+            gui.addGameOver();
+            justWon = false;
+        });
 
         currentWins.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         currentWins.setForeground(new java.awt.Color(255, 255, 255));
@@ -611,8 +621,4 @@ public class GamePanel extends javax.swing.JPanel implements ScoreChart.Listener
         timer.setCoalesce(true);
         timer.start();
     }
-
-    // End of variables declaration//GEN-END:variables
-
-
 }
