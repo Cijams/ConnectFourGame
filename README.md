@@ -1,4 +1,4 @@
 connect-four
 ============
 
-Project for SER215
+Basic Connect 4 game.
